@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Connected Office: Device Management</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <div class="container-fluid navcolour-dark">
+
+            <a class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+               aria-expanded="true" aria-label="Toggle navigation">
+                <h1>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Hamburger_icon.svg" />
+                    Connected Office: Device Management
+                </h1>
+
+
+            </a>
+
+        </div>
+    </header>
+    <div>
+        <div class="row">
+            <div class="col-md-2">
+
+                <div class="navbar-collapse navcolour">
+                    <ul class="list-unstyled pt-3">
+                        <li class="">
+                            <b><a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a></b>
+                        </li>
+                        <hr />
+
+                        @{
+                            if (User.Identity.IsAuthenticated)
+                            {
+                                <li class="nav-item">
+                                    <b><a class="nav-link text-dark" asp-area="" asp-controller="Zones" asp-action="Index">Zones</a></b>
+                                </li>
+                                <hr />
+                        
+                                <li class="nav-item">
+                                    <b><a class="nav-link text-dark" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a></b>
+                                </li>
+                                <hr />
+                                
+                                <li class="nav-item">
+                                    <b><a class="nav-link text-dark" asp-area="" asp-controller="Devices" asp-action="Index">Devices</a></b>
+                                </li>
+                                <hr />
+                                
+                                <li class="nav-item">
+                                    
+                                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                        <button type="submit" class="nav-link btn btn-link text-dark"><b>Logout</b></button>
+                                    </form>
+                                </li>
+                                
+                                <hr />
+                            }
+                            else
+                            {
+                                <li class="nav-item">
+                                    <b><a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a></b>
+                                </li>
+                                <hr />
+
+                                <li class="nav-item">
+                                    <b><a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a></b>
+                                </li>
+                                <hr />
+
+                            }
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <main role="main" class="pt-3">
+                    @RenderBody()
+                </main>
+            </div>
+        </div>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; @DateTime.Now.Year - Connected Office: Device Management - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

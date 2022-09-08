@@ -1,0 +1,47 @@
+﻿@model DeviceManagement_WebApp.Models.Zone
+
+@{
+    ViewData["Title"] = "Create Zone";
+}
+
+<h1>Create Zone</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" hidden>
+                <label asp-for="ZoneId" class="control-label"></label>
+                <input asp-for="ZoneId" class="form-control" />
+                <span asp-validation-for="ZoneId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneName" class="control-label"></label>
+                <input asp-for="ZoneName" class="form-control" />
+                <span asp-validation-for="ZoneName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ZoneDescription" class="control-label"></label>
+                <input asp-for="ZoneDescription" class="form-control" />
+                <span asp-validation-for="ZoneDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group" hidden>
+                <label asp-for="DateCreated" class="control-label"></label>
+                <input asp-for="DateCreated" value="@DateTime.UtcNow.AddHours(2)" class="form-control" />
+                <span asp-validation-for="DateCreated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
