@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DeviceManagement_WebApp.Data;
 using DeviceManagement_WebApp.Models;
+using DeviceManagement_WebApp.Repository;
 
 namespace DeviceManagement_WebApp.Controllers
 {
@@ -22,7 +23,13 @@ namespace DeviceManagement_WebApp.Controllers
         // GET: Zones
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Zone.ToListAsync());
+            ZonesRepository zonesRepository = new ZonesRepository();
+
+            var results = zonesRepository.GetAll();
+
+            return View(results);
+
+            //return View(await _context.Zone.ToListAsync());
         }
 
         // GET: Zones/Details/5
