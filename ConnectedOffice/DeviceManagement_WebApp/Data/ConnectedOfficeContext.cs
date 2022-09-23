@@ -14,7 +14,7 @@ namespace DeviceManagement_WebApp.Data
         public ConnectedOfficeContext()
         {
         }
-        
+            
         public ConnectedOfficeContext(DbContextOptions<ConnectedOfficeContext> options)
             : base(options)
         {
