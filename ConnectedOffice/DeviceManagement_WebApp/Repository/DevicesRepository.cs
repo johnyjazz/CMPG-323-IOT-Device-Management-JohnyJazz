@@ -19,5 +19,6 @@ namespace DeviceManagement_WebApp.Repository
         {
             return _context.Device.OrderByDescending(device => device.DateCreated).FirstOrDefault();
         }
+
     }
 }

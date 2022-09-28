@@ -2,6 +2,7 @@
 using System.Linq.Expressions;
 using System;
 using DeviceManagement_WebApp.Models;
+using System.Security.Cryptography;
 
 namespace DeviceManagement_WebApp.iRepository
 {
@@ -14,5 +15,8 @@ namespace DeviceManagement_WebApp.iRepository
         void AddRange(IEnumerable<T> entities);
         void Remove(T entity);
         void RemoveRange(IEnumerable<T> entities);
+        void Save();
+        void Update(T entity);
+        
     }
 }
