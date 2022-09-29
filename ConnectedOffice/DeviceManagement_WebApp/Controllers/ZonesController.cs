@@ -21,7 +21,7 @@ namespace DeviceManagement_WebApp.Controllers
             _zonesRepository = zonesRepository;
         }
 
-        // GET: Zones
+        // GET: Zones. for loading the index page
         public async Task<IActionResult> Index()
         {
             return View(_zonesRepository.GetAll());
@@ -44,13 +44,13 @@ namespace DeviceManagement_WebApp.Controllers
             return View(zone);
         }
 
-        // GET: Zones/Create
+        // GET: Zones/Create. to populate the page for creating new zones
         public IActionResult Create()
         {
             return View();
         }
 
-        //// POST: Zones/Create
+        //// POST: Zones/Create. to create new zones
         //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
         //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -80,7 +80,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(zone);
         }
 
-        //// POST: Zones/Edit/5
+        //// POST: Zones/Edit/5. to edit the zone details
         //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
         //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -112,7 +112,7 @@ namespace DeviceManagement_WebApp.Controllers
 
         }
 
-        //// GET: Zones/Delete/5
+        //// GET: Zones/Delete/5. to show details of item to be deleted
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -130,7 +130,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(zone);
         }
 
-        // POST: Zones/Delete/5
+        // POST: Zones/Delete/5. to confirm deletion
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Zone zone)

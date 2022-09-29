@@ -50,7 +50,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View();
         }
 
-        //// POST: Categories/Create
+        //// POST: Categories/Create. this method is for creating new items
         //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
         //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,7 +64,7 @@ namespace DeviceManagement_WebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: Categories/Edit/5
+        // GET: Categories/Edit/5. this is to preview the edited details
         public async Task<IActionResult> Edit(Guid? id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(category);
         }
 
-        //// POST: Categories/Edit/5
+        //// POST: Categories/Edit/5. this is for editing the item details
         //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
         //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -112,7 +112,7 @@ namespace DeviceManagement_WebApp.Controllers
 
         }
 
-        //// GET: Categories/Delete/5
+        //// GET: Categories/Delete/5. This is for showing the details of the item to be deleted
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -130,7 +130,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(category);
         }
 
-        // POST: Categories/Delete/5
+        // POST: Categories/Delete/5. This is for deleting categories
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Category category)

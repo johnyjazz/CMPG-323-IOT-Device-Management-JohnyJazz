@@ -52,7 +52,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View();
         }
 
-        //// POST: Devices/Create
+        //// POST: Devices/Create. This is for adding new devices
         //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
         //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -60,10 +60,7 @@ namespace DeviceManagement_WebApp.Controllers
         public async Task<IActionResult> Create([Bind("DeviceId,DeviceName,DeviceDescription,DateCreated")] Device device)
         {
             device.DeviceId = Guid.NewGuid();
-            //ViewBag.CategoryId = device.CategoryId.Tolist();
             
-            //var items = _categoriesRepository.GetAll().ToList() ;
-            //ViewBag.data = items;
             _DevicesRepository.Add(device);
             _DevicesRepository.Save();
 
@@ -86,7 +83,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(device);
         }
 
-        //// POST: Devices/Edit/5
+        //// POST: Devices/Edit/5 This is for editing device details
         //// To protect from overposting attacks, enable the specific properties you want to bind to, for 
         //// more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -119,7 +116,7 @@ namespace DeviceManagement_WebApp.Controllers
 
         }
 
-        //// GET: Devices/Delete/5
+        //// GET: Devices/Delete/5 - This is for showing the details of the device about to be deleted
         public async Task<IActionResult> Delete(Guid? id)
         {
             if (id == null)
@@ -137,7 +134,7 @@ namespace DeviceManagement_WebApp.Controllers
             return View(category);
         }
 
-        // POST: Devices/Delete/5
+        // POST: Devices/Delete/5. This is for deleting devices
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(Device device)
